@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+	{% load thumbnail %}
+	<div class="img img-rounded">
+		<div class="row">
+		{% for itm in item %}
+	<!-- each image owner-name and comments  -->
+			<div class="col-sm-offset-2 col-sm-8 img img-rounded" style="border:1px solid;margin-bottom:40px;">
+			<!-- user section below -->
+				<div class="row">
+					<div class="col-sm-offset-0 col-sm-12 img img-rounded" style="border:1px solid">
+						<!-- <img src="/static/images/9.jpg" class="img img-circle" width="100px"> -->
+						<br>
+						<div style="font-size:20px;">{{itm.user.first_name}} {{itm.user.last_name}}</div><br>
+					</div>
+				</div>
+			<!-- image section below -->
+				<div class="row">
+					<br>
+					<div class="col-sm-offset-1 col-sm-10">
+						{% thumbnail itm.image "600x600" crop="center" as im %}
+						<img src="{{im.url}}" class="img img-rounded" width="{{im.width}}" height="{{im.height}}">
+						{% endthumbnail %}
+						<!-- <br><br><br><br><br><br> -->
+					</div>
+				</div>
+			<!-- comments section below -->
+				<div class="row">
+					<br>
+					<div class="col-sm-offset-1 col-sm-10" style="border:solid">
+						{% for comment in itm.comments %}
+							{{comment.name}}
+							{{comment.email}}
+							{{comment.content}}
+						{% endfor %}
+						<!-- <input type="text" class="form-control" placeholder="Text input"> -->
+						<!-- <br><br><br> -->
+					</div>
+				</div>
+				<br>
+			</div>
+	<!-- end each image owner-name and comments  -->
+		{% endfor %}
+		</div>
+	</div>
+{% endblock %}

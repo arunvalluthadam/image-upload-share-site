@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+		{% block content %}
+
+		{% load thumbnail %}
+			<div class="row">
+
+			{% for itm in item %}
+				{% thumbnail itm.image "250x250" crop="center" as im %}
+					<div class="col-xs-6 col-md-3">
+						<a href="{% url 'resized_img' itm.id %}" class="thumbnail">
+						<!-- <a href="/resized-img/{{itm.id}}" class="thumbnail"> -->
+							<img src="{{im.url}}" alt="..." width="{{im.width}}" height="{{im.height}}">
+						</a>
+					</div>
+				{% endthumbnail %}
+			{% endfor%}
+
+
+			</div>
+	{% endblock %}

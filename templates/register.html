@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+		{% block content %}
+			<div>
+				<form action="/register/" method="post">
+					<div class="row">
+						<div class="col-sm-offset-1 col-sm-5">
+							<div class="form-group">
+								<label for="exampleInputEmail1">First Name</label>
+								{{reg_form.first_name}}
+								<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Frist name "> -->
+							</div>
+						</div>
+						
+						<div class="col-sm-5">
+							<div class="form-group">
+								<label for="exampleInputEmail1">Second Name</label>
+								{{reg_form.last_name}}
+								<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Second name"> -->
+							</div>
+						</div>
+
+						<div class="col-sm-offset-1 col-sm-5">
+							<div class="form-group">
+								<label for="exampleInputEmail1">User Name</label>
+								{{reg_form.username}}
+								<!-- <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter User Name"> -->
+							</div>
+						</div>
+						
+						<div class="col-sm-5">
+							<div class="form-group">
+								<label for="exampleInputEmail1">Email address</label>
+								<input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+							</div>
+						</div>
+						
+						<div class="col-sm-offset-1 col-sm-5">
+							<div class="form-group">
+								<label for="exampleInputPassword1">Password</label>
+								<input type="password" name="password1" class="form-control" id="exampleInputPassword1" placeholder="Password">
+							</div>
+						</div>
+						
+						<div class="col-sm-5">
+							<div class="form-group">
+								<label for="exampleInputPassword1">Password Again</label>
+								<input type="password" name="password2" class="form-control" id="exampleInputPassword1" placeholder="Password Again">
+							</div>
+						</div>
+						<div class="col-sm-offset-4 col-sm-5" style="margin-left:530px;">
+							<button type="submit" class="btn btn-info">Submit</button>
+						</div>
+						<br><br>
+					</div>
+				</form>
+			</div>
+	{% endblock %}
